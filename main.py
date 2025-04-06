@@ -1,7 +1,7 @@
 import cv2
 import os
 
-image_directory = "C:/Users/harsh/Downloads/Facial_Detector_Agent/images"
+image_directory = "C:/Users/harsh/Downloads/Facial_Detector_Agent"
 def list_images(directory):
     return [f for f in os.listdir(directory) if f.lower().endswith(('.png', '.jpg', '.jpeg'))]
 # List available images
@@ -25,7 +25,7 @@ img = cv2.imread(selected_image)
                  
 img_gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 
-recognitions = inputFaces.detectMultiScale(img_gray, scaleFactor=1.1, minNeighbors=3)
+recognitions = inputFaces.detectMultiScale(img_gray, scaleFactor=1.1, minNeighbors=2)
 
 for (x,y,w,h) in recognitions :
     cv2.rectangle(img,(x,y),(x+w,y+h),(0,255,0),2) 
